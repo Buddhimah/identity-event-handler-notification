@@ -229,8 +229,7 @@ public class NotificationUtil {
                 sendTo = userClaims.get(NotificationConstants.EmailNotification.CLAIM_URI_EMAIL);
             }
             if (StringUtils.isEmpty(sendTo)) {
-                throw NotificationRuntimeException.error(
-                        "Email notification sending failed. Sending email address is not configured for the user.");
+                log.warn("User email address is not available in the user claims.");
             }
         }
 
